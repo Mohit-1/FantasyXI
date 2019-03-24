@@ -1,8 +1,6 @@
 from django.db import models
-#from player.models import Player -- import statement not required as in Foreign key we use . notation
 from django.contrib.auth.models import User
 
-# Create your models here.
 class Team(models.Model):
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=20)

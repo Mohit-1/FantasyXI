@@ -19,7 +19,6 @@ from player.views import PlayerList, PlayerDetail
 from team.views import TeamList, TeamDetail, TeamPlayerUpdate
 from django.urls import include
 from rest_framework_jwt.views import refresh_jwt_token
-#from team.views import teamDetail, teamList
 
 urlpatterns = [
     path('admin/', admin.site.urls),

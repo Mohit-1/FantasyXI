@@ -1,5 +1,3 @@
-#from rest_framework.decorators import api_view
-
 from .models import Team, TeamPlayerRelation
 from .serializers import TeamSerializer, TeamPlayerRelationSerializer
 from rest_framework import generics
@@ -14,7 +12,7 @@ class TeamList(generics.ListCreateAPIView):
 
 class TeamDetail(APIView):       
     def get(self, request):
-        
+        pass
 
     def post(self, request):
         pass
@@ -43,31 +41,3 @@ class TeamPlayerUpdate(APIView):
             return Response(serializer.data, status=status.HTTP_204_NO_CONTENT)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)        
-
-
-
-"""
-FUNCTION_BASED VIEWS
-
-@api_view(['GET', 'POST'])
-def teamList(request):
-    if request.method == 'GET':
-        queryset = Team.objects.all()
-        serializer = TeamSerializer(queryset, many=True)
-        return Response(serializer.data)
-
-    elif request.method == 'POST':
-        serializer = TeamSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-@api_view()
-def teamDetail(request, pk):
-    if request.method == 'GET':
-        queryset = Team.objects.get(pk=pk)
-        serializer = TeamSerializer(queryset)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-"""
