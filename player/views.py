@@ -1,15 +1,11 @@
 from rest_framework import generics
 from .models import Player
 from .serializers import PlayerSerializer
-from .permissions import IsAdminOrReadOnly
-# Create your views here.
 
-class PlayerList(generics.ListCreateAPIView):
+class ListCreatePlayer(generics.ListCreateAPIView):
     queryset = Player.objects.all()
     serializer_class = PlayerSerializer
-    #permission_classes = (IsAdminOrReadOnly,)
 
-class PlayerDetail(generics.RetrieveUpdateDestroyAPIView):
+class EditPlayer(generics.UpdateAPIView):
     queryset = Player.objects.all()
     serializer_class = PlayerSerializer
-    #permission_classes = (IsAdminOrReadOnly,)
